@@ -3,6 +3,7 @@ title: "Django's transaction.on_commit"
 date: 2018-12-18
 categories: 
   - "tech"
+originalUrl: "https://vivekanandxyz.wordpress.com/2018/12/18/djangos-transaction-on_commit/"
 ---
 
 I am talking with Django's 1.11 in mind.

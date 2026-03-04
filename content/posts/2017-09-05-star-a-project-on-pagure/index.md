@@ -3,6 +3,7 @@ title: "Star a project on pagure"
 date: 2017-09-05
 categories: 
   - "fedora"
+originalUrl: "https://vivekanandxyz.wordpress.com/2017/09/05/star-a-project-on-pagure/"
 ---
 
 This feature was marked as "wishful" and it was supposed to be a low priority but i implemented it out of frustration. This should be there in the next feature release.

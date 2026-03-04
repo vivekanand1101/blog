@@ -3,6 +3,7 @@ title: "Using IRC from Mobile"
 date: 2017-08-06
 categories: 
   - "tech"
+originalUrl: "https://vivekanandxyz.wordpress.com/2017/08/06/using-irc-from-mobile/"
 ---
 
 In this blog post, i will talk about how i use IRC from mobile.

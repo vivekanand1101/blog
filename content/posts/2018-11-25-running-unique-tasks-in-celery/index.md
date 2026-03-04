@@ -3,6 +3,7 @@ title: "Running Unique tasks in celery"
 date: 2018-11-25
 categories: 
   - "tech"
+originalUrl: "https://vivekanandxyz.wordpress.com/2018/11/25/running-unique-tasks-in-celery/"
 ---
 
 At my day job, we had a requirement to make one of the api endpoints fast. The endpoint was computation intense and was taking lot of time. After profiling the endpoint using [django-silk](https://github.com/jazzband/django-silk), we came to the conclusion that `sql` wasn't the issue.

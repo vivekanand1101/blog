@@ -4,6 +4,7 @@ date: 2016-08-10
 categories: 
   - "fedora"
   - "tech"
+originalUrl: "https://vivekanandxyz.wordpress.com/2016/08/10/access-levels-of-user-or-group-in-a-pagure-project/"
 ---
 
 Currently in [pagure](https://pagure.io/), we have only two access levels in a project - either you have no access or admin access. There have been a few discussions of more levels of access - [#892](https://pagure.io/pagure/issue/829),  [#792](https://pagure.io/pagure/issue/792)

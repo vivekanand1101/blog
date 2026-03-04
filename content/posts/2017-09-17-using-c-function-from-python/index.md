@@ -3,6 +3,7 @@ title: "Using C function from Python"
 date: 2017-09-17
 categories: 
   - "tech"
+originalUrl: "https://vivekanandxyz.wordpress.com/2017/09/17/using-c-function-from-python/"
 ---
 
 c*types* is a python library which allows using C data types, functions from a python script. It's in the standard python library. To use C functions using ctypes, you will need to compile the C code and create a shared library.

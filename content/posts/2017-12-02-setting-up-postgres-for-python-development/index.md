@@ -3,6 +3,7 @@ title: "Setting up postgres for python development"
 date: 2017-12-02
 categories: 
   - "tech"
+originalUrl: "https://vivekanandxyz.wordpress.com/2017/12/02/setting-up-postgres-for-python-development/"
 ---
 
 Postgresql is my database of choice mainly because, almost (if not all) web applications in fedora infrastructure use postgres and i have been using the same. But, every time i use a fresh system, i face some issues with getting started. Almost all of them are for client authentication. This post is here in case it happens the same in future.

@@ -3,6 +3,7 @@ title: "Tornado with systemd"
 date: 2017-10-22
 categories: 
   - "tech"
+originalUrl: "https://vivekanandxyz.wordpress.com/2017/10/22/tornado-with-systemd/"
 ---
 
 Unlike Django or Flask, tornado is not WSGI based. It also ships with it's own HTTP server and running the tornado server in production is not very much different from what you do while running it while developing. You may want to run the server in background though.

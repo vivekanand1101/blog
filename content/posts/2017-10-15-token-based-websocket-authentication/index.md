@@ -3,6 +3,7 @@ title: "Token based Websocket Authentication"
 date: 2017-10-15
 categories: 
   - "tech"
+originalUrl: "https://vivekanandxyz.wordpress.com/2017/10/15/token-based-websocket-authentication/"
 ---
 
 At my day job, i had to implement websockets and thus authentication of the websocket connection came up. There were two different types of clients but, the authentication for browser client was the biggest headache.

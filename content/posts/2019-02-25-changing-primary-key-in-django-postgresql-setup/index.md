@@ -3,6 +3,7 @@ title: "Changing Primary Key in Django Postgresql Setup"
 date: 2019-02-25
 categories: 
   - "tech"
+originalUrl: "https://vivekanandxyz.wordpress.com/2019/02/25/changing-primary-key-in-django-postgresql-setup/"
 ---
 
 After visiting my own code after 8 months to make a change, i realised that the schema of the table needed an update and will need a change in primary key field. What i had assumed would be unique turns out wasn't unique after all. So, i needed to put the default "id" field as auto incremental primary key.

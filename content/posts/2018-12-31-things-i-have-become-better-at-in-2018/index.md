@@ -4,6 +4,7 @@ date: 2018-12-31
 categories: 
   - "personal"
   - "tech"
+originalUrl: "https://vivekanandxyz.wordpress.com/2018/12/31/things-i-have-become-better-at-in-2018/"
 ---
 
 It's about 43 min left for 2018 to end in my timezone and i have no fancy plans.

@@ -3,6 +3,7 @@ title: "Django with uwsgi and nginx on fedora"
 date: 2017-08-08
 categories: 
   - "tech"
+originalUrl: "https://vivekanandxyz.wordpress.com/2017/08/08/django-with-uwsgi-and-nginx-on-fedora/"
 ---
 
 Today, i deployed a [django](https://github.com/django/django) project using [uwsgi ](https://github.com/unbit/uwsgi)and [nginx ](https://github.com/nginx/nginx)on a fedora 26 instance on *AWS*. I will talk about the same here.

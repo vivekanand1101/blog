@@ -3,6 +3,7 @@ title: "Using Syntastic for Python development"
 date: 2017-08-16
 categories: 
   - "tech"
+originalUrl: "https://vivekanandxyz.wordpress.com/2017/08/16/using-syntastic-for-python-development/"
 ---
 
 I use [Synstastic plugin](https://github.com/vim-syntastic/syntastic) of vim for syntax checking in vim. Syntastic offers syntax checking for a LOT of languages. But, there is a problem that i had been facing with it. For a file with larger than 4k lines, it takes a lot of time to check the syntax and it used to happen every time you save the file. Syntax checking on write operation is the default behavior.

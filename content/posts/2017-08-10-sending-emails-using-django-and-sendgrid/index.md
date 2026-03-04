@@ -3,6 +3,7 @@ title: "Sending Emails using Django and Sendgrid"
 date: 2017-08-10
 categories: 
   - "tech"
+originalUrl: "https://vivekanandxyz.wordpress.com/2017/08/10/sending-emails-using-django-and-sendgrid/"
 ---
 
 Recently, i setup a django app which uses  [sendgrid](http://sendgrid.com) to send emails. I will go through the steps in this short blog.

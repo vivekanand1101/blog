@@ -4,6 +4,7 @@ date: 2016-08-13
 categories: 
   - "fedora"
   - "tech"
+originalUrl: "https://vivekanandxyz.wordpress.com/2016/08/13/pkgs-fedoraproject-org-on-a-pagure-instance/"
 ---
 
 pkgs.fedoraproject.org currently has more than 18k git repositories and it's relying on cgit which is not capable of git collaboration. On the other hand, we have pagure which is a git collaboration tool and it's live on [pagure.io](https://pagure.io). As part of my Google Summer of Code project, i was supposed to prepare script and adjust pagure so that we can have pkgs.fp.org on a pagure instance.

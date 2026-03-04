@@ -4,6 +4,7 @@ date: 2016-08-16
 categories: 
   - "fedora"
   - "tech"
+originalUrl: "https://vivekanandxyz.wordpress.com/2016/08/16/users-project-watch-list-on-pagure/"
 ---
 
 Not long ago, [Gaurav](https://pagure.io/user/aavrug) added watch feature on pagure. But, It had one thing missing from it: a user could not see what all projects he/she is watching. So, with pull request [#1158](https://pagure.io/pagure/pull-request/1158), i tried to solve that problem.

@@ -4,6 +4,7 @@ date: 2016-08-29
 categories: 
   - "fedora"
   - "tech"
+originalUrl: "https://vivekanandxyz.wordpress.com/2016/08/29/gsoc-wrap-up/"
 ---
 
 GSoC 2016 finished last week and i am writing this blog to list the work done by me in last three months for Fedora. My project was to adjust pagure and write script(s) so that we can have pkgs.fedoraproject.org on a pagure instance. We have it in staging currently http://pkgs.stg.fedoraproject.org/pagure/

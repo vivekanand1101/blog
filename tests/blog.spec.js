@@ -94,14 +94,15 @@ test.describe('No escaped underscores in rendered text', () => {
   }
 });
 
-test.describe('No self-referencing WordPress URLs', () => {
+test.describe('No WordPress image URLs or in-content WordPress links', () => {
   for (const slug of ALL_POSTS) {
-    test(`${slug} has no vivekanandxyz.wordpress.com links`, async ({ page }) => {
+    test(`${slug} has no WordPress images or body links`, async ({ page }) => {
       await page.goto(`${BASE}/posts/${slug}/`);
-      const links = page.locator('a[href*="vivekanandxyz.wordpress.com"]');
-      expect(await links.count(), `${slug} should not link to old WordPress blog`).toBe(0);
       const imgs = page.locator('img[src*="wordpress.com"]');
       expect(await imgs.count(), `${slug} should not have WordPress image URLs`).toBe(0);
+      // Links to vivekanandxyz.wordpress.com should only exist in the "Originally published" line, not in article body
+      const bodyLinks = page.locator('section a[href*="vivekanandxyz.wordpress.com"]');
+      expect(await bodyLinks.count(), `${slug} should not have WordPress links in body content`).toBe(0);
     });
   }
 });
@@ -128,6 +129,18 @@ test.describe('Images render properly', () => {
         expect(src, `image src should not be empty`).toBeTruthy();
         expect(src).not.toContain('wordpress.com');
       }
+    });
+  }
+});
+
+test.describe('Original WordPress link shown on migrated posts', () => {
+  for (const slug of ALL_POSTS) {
+    test(`${slug} has "Originally published on WordPress" link`, async ({ page }) => {
+      await page.goto(`${BASE}/posts/${slug}/`);
+      const link = page.locator('a[href*="vivekanandxyz.wordpress.com"]');
+      expect(await link.count()).toBe(1);
+      const href = await link.getAttribute('href');
+      expect(href).toContain(slug.replace(/^\d{4}-\d{2}-\d{2}-/, ''));
     });
   }
 });

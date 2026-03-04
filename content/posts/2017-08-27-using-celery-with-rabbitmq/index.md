@@ -3,6 +3,7 @@ title: "Using Celery with Rabbitmq"
 date: 2017-08-27
 categories: 
   - "tech"
+originalUrl: "https://vivekanandxyz.wordpress.com/2017/08/27/using-celery-with-rabbitmq/"
 ---
 
 [Rabbitmq](https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwik9L3v-PfVAhXGMo8KHfpSDvYQFggnMAA&url=https%3A%2F%2Fwww.rabbitmq.com%2F&usg=AFQjCNGDosbIEgmvo7ybtwDm3q37XqGfbA) is a message broker and [celery](https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwid_MT6-PfVAhWMvI8KHaKVBbcQFggnMAA&url=http%3A%2F%2Fwww.celeryproject.org%2F&usg=AFQjCNGLo7UUJstLB7GtJlS-IyDXHq8E2A) is a task queue. When you run a celery app, by default, it will open as many processes as there are cores of cpu on the machine. These processes are workers. When you have a task which needs to be done outside of a normal HTTP request-response cycle,  you can use a task queue. Rabbitmq can be configured to decide (and deliver) which worker the task has to go and celery will help in the actual execution of the tasks.

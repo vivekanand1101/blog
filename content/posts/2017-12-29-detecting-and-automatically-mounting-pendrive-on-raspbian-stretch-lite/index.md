@@ -3,6 +3,7 @@ title: "Detecting and Automatically Mounting Pendrive on Raspbian Stretch Lite"
 date: 2017-12-29
 categories: 
   - "tech"
+originalUrl: "https://vivekanandxyz.wordpress.com/2017/12/29/detecting-and-automatically-mounting-pendrive-on-raspbian-stretch-lite/"
 ---
 
 In the lite version of Raspbian Stretch, i didn't expect that i would have to manually mount the pendrive. I had a use case in which mounting it automatically was a necessity and thus i came across [usbmount.](https://github.com/rbrito/usbmount)

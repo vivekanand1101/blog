@@ -3,6 +3,7 @@ title: "Realtime Events using Tornado and Rabbitmq"
 date: 2017-09-09
 categories: 
   - "tech"
+originalUrl: "https://vivekanandxyz.wordpress.com/2017/09/09/realtime-events-using-tornado-and-rabbitmq/"
 ---
 
 At my day job, i needed a way to send real time events to clients that would in turn trigger some action on their side. The clients could ask for some computation from server which may take time.
