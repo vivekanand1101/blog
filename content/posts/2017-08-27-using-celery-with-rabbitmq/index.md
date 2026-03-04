@@ -10,9 +10,5 @@ categories:
 Celery supports a lot of message brokers but, Rabbitmq is the default one. So, setting up celery for using with rabbitmq doesn't require any effort. If you have rabbitmq already installed then all you need to do is create a rabbitmq user, a virtual host and give the user access to the virtual host. It is given in the celery documentation [here](http://docs.celeryproject.org/en/latest/getting-started/brokers/rabbitmq.html#setting-up-rabbitmq).
 
 Then you need to specify the broker url in this format in the celery app.
-
-```
-broker_url = 'amqp://myuser:mypassword@localhost:5672/myvhost'
-```
-
-The default exchange that celery listens to is named '_celery_' and routing key is also '_celery_'. The '_celery_' exchange is direct type exchange. [AMQP](https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=14&cad=rja&uact=8&ved=0ahUKEwjwqbzi-PfVAhUEOY8KHYquA9UQFghpMA0&url=https%3A%2F%2Fwww.amqp.org%2F&usg=AFQjCNFZfR8N8t3P8ZR3YGR4VU5dDmG0hg) is the protocol that rabbitmq follows. Username, password and virtual host here is of rabbitmq that you want celery to use. Based on the given broker url, celery attempts to know which message broker is being used.
+*broker_url = 'amqp://myuser:mypassword@localhost:5672/myvhost'*
+The default exchange that celery listens to is named '*celery*' and routing key is also '*celery*'. The '*celery*' exchange is direct type exchange. [AMQP](https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=14&cad=rja&uact=8&ved=0ahUKEwjwqbzi-PfVAhUEOY8KHYquA9UQFghpMA0&url=https%3A%2F%2Fwww.amqp.org%2F&usg=AFQjCNFZfR8N8t3P8ZR3YGR4VU5dDmG0hg) is the protocol that rabbitmq follows. Username, password and virtual host here is of rabbitmq that you want celery to use. Based on the given broker url, celery attempts to know which message broker is being used.

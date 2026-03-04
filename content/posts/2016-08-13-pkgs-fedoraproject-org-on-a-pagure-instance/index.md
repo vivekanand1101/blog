@@ -13,17 +13,15 @@ For those who are not familiar with pagure, it's a free and open source git coll
 The idea is, we will make pkgs.fedoraproject.org a pagure instance. With this change, it will be easier for anybody to contribute to any of the git rpms hosted on pkgs.fp.org . This is the major reason for the shift. Currently, only the rpm maintainers can make changes to the repository. But, once we have these rpms on a pagure instance, anybody with a [FAS](https://admin.fedoraproject.org/accounts/) account can fork the project and make a pull request.
 
 Here are a few points which makes pagure adaptable for pkgs.fp.org :
-
 - Turn on/off user management: Since, the acls for the git repositories come from pkgdb, user management should be turned off on the instance level.
-- Turn on/off Issue Tracker: The git rpms are not exactly projects, so it's turned off at the instance level as well.
-- Turn on/off project creation: The git rpms need approval for creation of a project, thus a user shouldn't be able to create a project.
-- Pseudo namespace: Pagure doesn't have namespaces for a project (although, forks have). Thus, pseudo namespace was introduced. We can have a list of namespaces allowed for an instance.
-
+	- Turn on/off Issue Tracker: The git rpms are not exactly projects, so it's turned off at the instance level as well.
+	- Turn on/off project creation: The git rpms need approval for creation of a project, thus a user shouldn't be able to create a project.
+	- Pseudo namespace: Pagure doesn't have namespaces for a project (although, forks have). Thus, pseudo namespace was introduced. We can have a list of namespaces allowed for an instance.
 Honestly speaking, almost all the above mentioned work was already done. After this, we just needed to adjust the script which currently gets acls from pkgdb so that it updates pagure database as well.
 
 The work is almost complete and the shift should not take long once pingou returns from his vacation.
 
-For any further query, you can ping me on #fedora-apps (nick: vivek\_)
+For any further query, you can ping me on #fedora-apps (nick: vivek_)
 
 Happy coding,
 

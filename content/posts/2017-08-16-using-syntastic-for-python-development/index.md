@@ -9,6 +9,21 @@ I use [Synstastic plugin](https://github.com/vim-syntastic/syntastic) of vim for
 
 So, i did some changes in my .vimrc so that i could still use Syntastic for larger files. Do note that syntastic checking still takes a long time but, i have configured it to be called whenever i want to rather than on every write operation or opening of file.
 
-_" show list of errors and warnings on the current file_ _nmap <leader>e :Errors<CR>_ _" Whether to perform syntastic checking on opening of file_ _" This made it very slow on open, so don't_ _let g:syntastic\_check\_on\_open = 0_ _" Don't check every time i save the file_ _" I will call you when i need you_ _let g:syntastic\_check\_on\_wq = 0_ _" By default, keep syntastic in passive mode_ _let g:syntastic\_mode\_map = { 'mode': 'passive' }_ _" Use :Sc to perform syntastic check_ _:command Sc :SyntasticCheck_ _" Check pylint for python_ _let g:syntastic\_python\_checkers = \['pylint'\]_ _" For jsx - React and React native_ _let g:syntastic\_javascript\_checkers = \['eslint'\]_
+*" show list of errors and warnings on the current file *
+* nmap e :Errors *
+* " Whether to perform syntastic checking on opening of file *
+* " This made it very slow on open, so don't *
+* let g:syntastic_check_on_open = 0 *
+* " Don't check every time i save the file *
+* " I will call you when i need you *
+* let g:syntastic_check_on_wq = 0 *
+* " By default, keep syntastic in passive mode *
+* let g:syntastic_mode_map = { 'mode': 'passive' } *
+* " Use :Sc to perform syntastic check *
+* :command Sc :SyntasticCheck *
+* " Check pylint for python *
+* let g:syntastic_python_checkers = ['pylint'] *
+* " For jsx - React and React native *
+* let g:syntastic_javascript_checkers = ['eslint']*
 
 This change made opening of a larger python file ~25s (yes, seconds) faster. It still takes a lot of time for syntax checking though. I will have to find out why and if i could do anything about it. I don't want to leave out this plugin because it offers so much. I could simply use [Python-mode](https://github.com/python-mode/python-mode) for python syntax checking but, what about the rest of the languages which i am going to use.
