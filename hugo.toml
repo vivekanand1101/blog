@@ -1,0 +1,29 @@
+baseURL = 'https://blog.anandvivek.in/'
+languageCode = 'en-us'
+title = "Vivek's Blog"
+theme = 'paper'
+
+[params]
+  color = 'linen'
+  avatar = ''
+  name = 'Vivek Anand'
+  bio = 'Software Engineer · Builder · Open Source Enthusiast'
+
+[menu]
+  [[menu.main]]
+    identifier = 'home'
+    name = 'Home'
+    url = '/'
+    weight = 1
+  [[menu.main]]
+    identifier = 'about'
+    name = 'About'
+    url = 'https://anandvivek.in'
+    weight = 2
+
+[markup]
+  [markup.highlight]
+    style = 'dracula'
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
