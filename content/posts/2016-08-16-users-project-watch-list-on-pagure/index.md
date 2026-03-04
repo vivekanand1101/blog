@@ -12,4 +12,4 @@ For those of you are not aware of this feature, a user can now subscribe for ema
 
 I won't go in details of how this was implemented since, it involves simple function calls and minor addition in the UI (plus, there is a link to the PR). I will, however, attach screenshot of how it will look, when it will be live on [pagure.io](http://pagure.io).
 
-![](https://vivekanandxyz.wordpress.com/wp-content/uploads/2016/08/screenshot-from-2016-08-16-17-03-291.png)
+![](images/screenshot-from-2016-08-16-17-03-291.png)

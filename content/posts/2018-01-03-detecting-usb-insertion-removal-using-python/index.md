@@ -5,7 +5,7 @@ categories:
   - "tech"
 ---
 
-In my [last blog](https://vivekanandxyz.wordpress.com/2017/12/29/detecting-and-automatically-mounting-pendrive-on-raspbian-stretch-lite/), i wrote about how usbmount can be used to automatically mount a usb. Today, i had to detect this mounting from python and show it in a web application that a usb has been inserted. I used [pyudev](https://github.com/pyudev/pyudev) for this and ran it in a different thread so that the main application thread is not affected by pyudev's monitor loop.
+In my [last blog](/posts/2017-12-29-detecting-and-automatically-mounting-pendrive-on-raspbian-stretch-lite/), i wrote about how usbmount can be used to automatically mount a usb. Today, i had to detect this mounting from python and show it in a web application that a usb has been inserted. I used [pyudev](https://github.com/pyudev/pyudev) for this and ran it in a different thread so that the main application thread is not affected by pyudev's monitor loop.
 
 ```python
 

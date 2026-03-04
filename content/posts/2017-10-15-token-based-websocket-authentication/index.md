@@ -21,11 +21,11 @@ We are using Django for our main web application. Django and WSGI based python f
 In Django, by default, cookies are not readable by javascript. They are marked as HTTP only and thus the browser uses the cookie only for making http/https requests to the origin server. It can be turned off by using:
 SESSION_COOKIE_HTTPONLY = False
 
-![](https://vivekanandxyz.wordpress.com/wp-content/uploads/2017/10/screenshot-from-2017-10-15-00-16-41.png)
+![](images/screenshot-from-2017-10-15-00-16-41.png)
 
 The above image is when you have *SESSION_COOKIE_HTTPONLY = True* .
 
-![](https://vivekanandxyz.wordpress.com/wp-content/uploads/2017/10/screenshot-from-2017-10-15-00-42-28.png)
+![](images/screenshot-from-2017-10-15-00-42-28.png)
 
 This is when you set SESSION_COOKIE_HTTPONLY  to False. The ```sessionid``` is the one which will be used by the server to identify the user.
 
