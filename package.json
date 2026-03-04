@@ -1,0 +1,27 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Personal blog hosted at [blog.anandvivek.in](https://blog.anandvivek.in) via **Cloudflare Pages**.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vivekanand1101/blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/vivekanand1101/blog/issues"
+  },
+  "homepage": "https://github.com/vivekanand1101/blog#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2"
+  }
+}

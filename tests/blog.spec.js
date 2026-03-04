@@ -1,0 +1,143 @@
+const { test, expect } = require('@playwright/test');
+
+const BASE = 'http://localhost:1313';
+
+const ALL_POSTS = [
+  '2016-08-10-access-levels-of-user-or-group-in-a-pagure-project',
+  '2016-08-13-pkgs-fedoraproject-org-on-a-pagure-instance',
+  '2016-08-16-users-project-watch-list-on-pagure',
+  '2016-08-29-gsoc-wrap-up',
+  '2017-08-06-using-irc-from-mobile',
+  '2017-08-08-django-with-uwsgi-and-nginx-on-fedora',
+  '2017-08-10-sending-emails-using-django-and-sendgrid',
+  '2017-08-16-using-syntastic-for-python-development',
+  '2017-08-27-using-celery-with-rabbitmq',
+  '2017-09-05-running-firefox-as-kiosk-application-on-rpi3',
+  '2017-09-05-star-a-project-on-pagure',
+  '2017-09-09-realtime-events-using-tornado-and-rabbitmq',
+  '2017-09-17-using-c-function-from-python',
+  '2017-10-15-token-based-websocket-authentication',
+  '2017-10-22-tornado-with-systemd',
+  '2017-12-02-setting-up-postgres-for-python-development',
+  '2017-12-29-detecting-and-automatically-mounting-pendrive-on-raspbian-stretch-lite',
+  '2018-01-03-detecting-usb-insertion-removal-using-python',
+  '2018-11-25-running-unique-tasks-in-celery',
+  '2018-12-18-djangos-transaction-on_commit',
+  '2018-12-31-things-i-have-become-better-at-in-2018',
+  '2019-02-25-changing-primary-key-in-django-postgresql-setup',
+];
+
+// Posts that must have code blocks (have ``` fences in markdown source)
+const POSTS_WITH_CODE = [
+  '2017-08-27-using-celery-with-rabbitmq',
+  '2017-09-09-realtime-events-using-tornado-and-rabbitmq',
+  '2017-09-17-using-c-function-from-python',
+  '2017-10-15-token-based-websocket-authentication',
+  '2018-01-03-detecting-usb-insertion-removal-using-python',
+  '2018-11-25-running-unique-tasks-in-celery',
+  '2019-02-25-changing-primary-key-in-django-postgresql-setup',
+];
+
+// Posts that must have images
+const POSTS_WITH_IMAGES = [
+  '2016-08-16-users-project-watch-list-on-pagure',
+  '2017-09-05-star-a-project-on-pagure',
+  '2017-10-15-token-based-websocket-authentication',
+];
+
+test.describe('Homepage', () => {
+  test('loads and lists posts', async ({ page }) => {
+    await page.goto(BASE);
+    await expect(page).toHaveTitle(/Vivek/);
+    const links = page.locator('a[href*="/posts/"]');
+    expect(await links.count()).toBeGreaterThanOrEqual(5);
+  });
+
+  test('all 22 posts are reachable', async ({ page }) => {
+    for (const slug of ALL_POSTS) {
+      const res = await page.goto(`${BASE}/posts/${slug}/`);
+      expect(res.status(), `${slug} should return 200`).toBe(200);
+    }
+  });
+});
+
+test.describe('No broken WordPress shortcodes', () => {
+  for (const slug of ALL_POSTS) {
+    test(`${slug} has no [code] or [sourcecode] shortcodes`, async ({ page }) => {
+      await page.goto(`${BASE}/posts/${slug}/`);
+      const body = await page.locator('article').innerHTML();
+      expect(body).not.toContain('[code');
+      expect(body).not.toContain('[/code]');
+      expect(body).not.toContain('[sourcecode');
+      expect(body).not.toContain('[/sourcecode]');
+    });
+  }
+});
+
+test.describe('No raw markdown fences in rendered HTML', () => {
+  for (const slug of ALL_POSTS) {
+    test(`${slug} has no raw backtick fences`, async ({ page }) => {
+      await page.goto(`${BASE}/posts/${slug}/`);
+      const text = await page.locator('article').textContent();
+      expect(text).not.toContain('```');
+    });
+  }
+});
+
+test.describe('No escaped underscores in rendered text', () => {
+  for (const slug of ALL_POSTS) {
+    test(`${slug} has no literal backslash-underscore`, async ({ page }) => {
+      await page.goto(`${BASE}/posts/${slug}/`);
+      const text = await page.locator('article').textContent();
+      expect(text).not.toContain('\\_');
+    });
+  }
+});
+
+test.describe('No self-referencing WordPress URLs', () => {
+  for (const slug of ALL_POSTS) {
+    test(`${slug} has no vivekanandxyz.wordpress.com links`, async ({ page }) => {
+      await page.goto(`${BASE}/posts/${slug}/`);
+      const links = page.locator('a[href*="vivekanandxyz.wordpress.com"]');
+      expect(await links.count(), `${slug} should not link to old WordPress blog`).toBe(0);
+      const imgs = page.locator('img[src*="wordpress.com"]');
+      expect(await imgs.count(), `${slug} should not have WordPress image URLs`).toBe(0);
+    });
+  }
+});
+
+test.describe('Code blocks render properly', () => {
+  for (const slug of POSTS_WITH_CODE) {
+    test(`${slug} has rendered code blocks`, async ({ page }) => {
+      await page.goto(`${BASE}/posts/${slug}/`);
+      const codeBlocks = page.locator('article pre code, article .highlight pre');
+      expect(await codeBlocks.count(), `${slug} should have at least one code block`).toBeGreaterThanOrEqual(1);
+    });
+  }
+});
+
+test.describe('Images render properly', () => {
+  for (const slug of POSTS_WITH_IMAGES) {
+    test(`${slug} has working images (no broken src)`, async ({ page }) => {
+      await page.goto(`${BASE}/posts/${slug}/`);
+      const images = page.locator('article img');
+      const count = await images.count();
+      expect(count, `${slug} should have at least one image`).toBeGreaterThanOrEqual(1);
+      for (let i = 0; i < count; i++) {
+        const src = await images.nth(i).getAttribute('src');
+        expect(src, `image src should not be empty`).toBeTruthy();
+        expect(src).not.toContain('wordpress.com');
+      }
+    });
+  }
+});
+
+test.describe('Post content is not empty', () => {
+  for (const slug of ALL_POSTS) {
+    test(`${slug} has meaningful content`, async ({ page }) => {
+      await page.goto(`${BASE}/posts/${slug}/`);
+      const text = await page.locator('article').textContent();
+      expect(text.length, `${slug} should have substantial content`).toBeGreaterThan(100);
+    });
+  }
+});
