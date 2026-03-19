@@ -9,13 +9,23 @@
       {{- if .Date -}}
       <time>{{- .Date | time.Format ":date_medium" -}}</time>
       {{- end -}}<!---->
-      {{- $single_author := or .Params.Author site.Author.name -}}
+      {{- $single_author := or .Params.Author (site.Params.name) -}}
       <!---->
       {{- if $single_author -}}
       <span class="mx-1">&middot;</span>
       <span>{{- $single_author -}}</span>
       {{- end -}}
     </div>
+    {{- if .Date -}}
+      {{- $ageDays := div (sub now.Unix .Date.Unix) 86400 -}}
+      {{- if gt $ageDays 180 -}}
+        {{- $ageYears := div $ageDays 365 -}}
+        {{- $ageMonths := div $ageDays 30 -}}
+        <div class="text-xs mt-2" style="color: red;">
+          ⚠️ This post is over {{ if ge $ageYears 1 }}{{ $ageYears }} year{{ if gt $ageYears 1 }}s{{ end }}{{ else }}{{ $ageMonths }} month{{ if gt $ageMonths 1 }}s{{ end }}{{ end }} old.
+        </div>
+      {{- end -}}
+    {{- end -}}
     {{- end -}}
   </header>
 
