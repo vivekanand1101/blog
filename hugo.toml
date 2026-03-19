@@ -8,6 +8,7 @@ theme = 'paper'
   avatar = ''
   name = 'Vivek Anand'
   bio = 'Tech Lead · Backend Engineer'
+  favicon = 'favicon.svg'
 
 [menu]
   [[menu.main]]
