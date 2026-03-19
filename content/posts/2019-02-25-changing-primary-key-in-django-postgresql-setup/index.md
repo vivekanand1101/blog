@@ -54,3 +54,5 @@ $old_primary_key = models.CharField(max_length=100, null=True, blank=True)
 
 	- Now, if you run makemigrations, you should not find any new migrations created by django for changing primary key.
 The best part about postgresql in this is that if you add a auto increment integer primary key, it auto-fills the rows with the keys starting from 1.
+
+> **Note:** This approach assumes no other table has a foreign key referencing the old primary key. If other tables do reference it, you will need to drop those foreign key constraints first, update the referencing columns to point to the new primary key, and then re-add the foreign key constraints. Skipping this will cause the migration to fail.

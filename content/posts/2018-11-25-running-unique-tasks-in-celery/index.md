@@ -54,7 +54,7 @@ def recompute_heavy_computation(loan_id):
 
 The shortcoming with this method is that even if the computation is taking place only once, we still would need to publish the task which means the queue still gets flooded.
 
-2.** Discarding the task in django**
+- **Discarding the task in django**
 
 ```python
 
@@ -80,6 +80,7 @@ class TransactionAwareUniqueTask(TransactionAwareTask):
         has_lock = lock.acquire(blocking=False)
         if has_lock:
             LOGGER.debug("Lock acquired: %s", key)
+            kwargs.pop('key')  # remove 'key' before passing to celery, it's not serialisable/needed by the worker
             super(TransactionAwareUniqueTask, self).delay(*args, **kwargs)
         else:
             LOGGER.debug("Can not get lock: %s", key)

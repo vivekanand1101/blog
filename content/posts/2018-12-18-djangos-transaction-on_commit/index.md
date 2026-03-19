@@ -6,7 +6,7 @@ categories:
 originalUrl: "https://vivekanandxyz.wordpress.com/2018/12/18/djangos-transaction-on_commit/"
 ---
 
-I am talking with Django's 1.11 in mind.
+I am talking with Django 1.11 in mind. The concepts still apply to newer versions.
 
 Django provides a method using which you can execute a particular function when you are sure that a particular entry has made to the database, that's transaction.on_commit.
 
@@ -20,8 +20,8 @@ When the code is running, you can register a function to be called, by calling
 
 Remember, you are trying to pass a function here and not the function's returned value. What happens here is, Django adds the* my_fancy_function_to_be_called_on_commit* to a list of functions which it calls when it finally commits the ongoing transaction. There are few small things here:
 - Since the transactions can be nested, when does django finally execute these functions?Django executes them after it is no longer inside an atomic block (wrapped in a transaction). If there is no transaction block and you are trying to register the function, it won't get register rather get called instead. Here is the link to the source code:
-[Registering and What happens on registering](https://github.com/django/django/blob/stable/1.11.x/django/db/backends/base/base.py#L634)
-[Things happening while executing the registered functions](https://github.com/django/django/blob/stable/1.11.x/django/db/backends/base/base.py#L645)
+[Registering and what happens on registering](https://github.com/django/django/blob/main/django/db/backends/base/base.py)
+[Things happening while executing the registered functions](https://github.com/django/django/blob/main/django/db/backends/base/base.py)
 	- How do i pass arguments to the above functions?This is actually a basic python issue. You can wrap your function which has arguments inside a lambda expression or a normal function.
 
 transaction.on_commit(lambda: my_fancier_func_with_args(a, b))

@@ -6,7 +6,7 @@ categories:
 originalUrl: "https://vivekanandxyz.wordpress.com/2018/01/03/detecting-usb-insertion-removal-using-python/"
 ---
 
-In my [last blog](/posts/2017-12-29-detecting-and-automatically-mounting-pendrive-on-raspbian-stretch-lite/), i wrote about how usbmount can be used to automatically mount a usb. Today, i had to detect this mounting from python and show it in a web application that a usb has been inserted. I used [pyudev](https://github.com/pyudev/pyudev) for this and ran it in a different thread so that the main application thread is not affected by pyudev's monitor loop.
+In a previous post, i wrote about how [usbmount](https://github.com/rbrito/usbmount) can be used to automatically mount a USB on Raspbian. Today, i had to detect this mounting from python and show it in a web application that a usb has been inserted. I used [pyudev](https://github.com/pyudev/pyudev) for this and ran it in a different thread so that the main application thread is not affected by pyudev's monitor loop.
 
 ```python
 
@@ -25,10 +25,10 @@ class USBDetector():
         self.monitor = pyudev.Monitor.from_netlink(self.context)
         self.monitor.filter_by(subsystem='usb')
         # this is module level logger, can be ignored
-        LOGGER.info(&quot;Starting to monitor for usb&quot;)
+        LOGGER.info("Starting to monitor for usb")
         self.monitor.start()
         for device in iter(self.monitor.poll, None):
-            LOGGER.info(&quot;Got USB event: %s&quot;, device.action)
+            LOGGER.info("Got USB event: %s", device.action)
             if device.action == 'add':
                 # some function to run on insertion of usb
                 self.on_created()

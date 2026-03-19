@@ -61,7 +61,7 @@ def create_ws_token(context):
     user = request.user.username
     current_time = datetime.datetime.strftime(
             datetime.datetime.utcnow(),
-            &quot;%d:%m:%Y:%H:%M:%S&quot;
+            "%d:%m:%Y:%H:%M:%S"
     )
     token = 'wstoken' + uuid.uuid4().hex
     output = {
@@ -100,7 +100,7 @@ socket is a function which is defined in other js file which creates a websocket
 
 ```javascript
 
-ws = create_ws(&quot;ws://localhost:8080/wsb?ws_token=&quot;+ws_token);
+ws = create_ws("ws://localhost:8080/wsb?ws_token="+ws_token);
 
 ```
 
@@ -137,7 +137,7 @@ def authenticate(self, token):
         current_time = datetime.datetime.utcnow()
         valid_time = current_time - datetime.timedelta(seconds=20)
         inredis_time = datetime.datetime.strptime(
-           inredis['time'], &quot;%d:%m:%Y:%H:%M:%S&quot;
+           inredis['time'], "%d:%m:%Y:%H:%M:%S"
          )
         if valid_time <= inredis_time:
             return inredis['user']
@@ -147,4 +147,4 @@ def authenticate(self, token):
 
 I chose redis because, Tornado is a single threaded server and connecting to db, if it's not async will result in a blocking connection which means the real time features will get affected.
 
-That's it.
+> **Note:** The token is stored in Redis using `set()` with no TTL. If the websocket connection never happens (e.g. user closes the tab before connecting), the token will stay in Redis forever. A better approach is to use `setex()` with a short TTL (e.g. 30 seconds) so that unused tokens are automatically cleaned up.
