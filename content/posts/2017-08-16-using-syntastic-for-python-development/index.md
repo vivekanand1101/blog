@@ -1,6 +1,8 @@
 ---
 title: "Using Syntastic for Python development"
 date: 2017-08-16
+draft: true
+archived: true
 categories: 
   - "tech"
 originalUrl: "https://vivekanandxyz.wordpress.com/2017/08/16/using-syntastic-for-python-development/"

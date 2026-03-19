@@ -1,6 +1,8 @@
 ---
 title: "Running Firefox as kiosk application on RPi3"
 date: 2017-09-05
+draft: true
+archived: true
 categories: 
   - "tech"
 originalUrl: "https://vivekanandxyz.wordpress.com/2017/09/05/running-firefox-as-kiosk-application-on-rpi3/"

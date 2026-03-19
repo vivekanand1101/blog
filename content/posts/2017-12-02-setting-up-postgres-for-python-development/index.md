@@ -1,6 +1,8 @@
 ---
 title: "Setting up postgres for python development"
 date: 2017-12-02
+draft: true
+archived: true
 categories: 
   - "tech"
 originalUrl: "https://vivekanandxyz.wordpress.com/2017/12/02/setting-up-postgres-for-python-development/"

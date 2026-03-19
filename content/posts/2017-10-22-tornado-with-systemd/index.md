@@ -1,6 +1,8 @@
 ---
 title: "Tornado with systemd"
 date: 2017-10-22
+draft: true
+archived: true
 categories: 
   - "tech"
 originalUrl: "https://vivekanandxyz.wordpress.com/2017/10/22/tornado-with-systemd/"

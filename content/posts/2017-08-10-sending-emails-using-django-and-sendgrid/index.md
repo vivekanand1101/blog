@@ -1,6 +1,8 @@
 ---
 title: "Sending Emails using Django and Sendgrid"
 date: 2017-08-10
+draft: true
+archived: true
 categories: 
   - "tech"
 originalUrl: "https://vivekanandxyz.wordpress.com/2017/08/10/sending-emails-using-django-and-sendgrid/"

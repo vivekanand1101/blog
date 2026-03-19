@@ -1,6 +1,8 @@
 ---
 title: "Detecting and Automatically Mounting Pendrive on Raspbian Stretch Lite"
 date: 2017-12-29
+draft: true
+archived: true
 categories: 
   - "tech"
 originalUrl: "https://vivekanandxyz.wordpress.com/2017/12/29/detecting-and-automatically-mounting-pendrive-on-raspbian-stretch-lite/"

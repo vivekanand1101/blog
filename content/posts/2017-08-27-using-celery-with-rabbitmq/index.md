@@ -1,6 +1,8 @@
 ---
 title: "Using Celery with Rabbitmq"
 date: 2017-08-27
+draft: true
+archived: true
 categories: 
   - "tech"
 originalUrl: "https://vivekanandxyz.wordpress.com/2017/08/27/using-celery-with-rabbitmq/"

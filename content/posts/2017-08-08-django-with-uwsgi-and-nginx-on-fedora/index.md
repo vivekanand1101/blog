@@ -1,6 +1,8 @@
 ---
 title: "Django with uwsgi and nginx on fedora"
 date: 2017-08-08
+draft: true
+archived: true
 categories: 
   - "tech"
 originalUrl: "https://vivekanandxyz.wordpress.com/2017/08/08/django-with-uwsgi-and-nginx-on-fedora/"

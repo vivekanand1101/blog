@@ -1,6 +1,8 @@
 ---
 title: "Using C function from Python"
 date: 2017-09-17
+draft: true
+archived: true
 categories: 
   - "tech"
 originalUrl: "https://vivekanandxyz.wordpress.com/2017/09/17/using-c-function-from-python/"
