@@ -1,6 +1,6 @@
 baseURL = 'https://blog.anandvivek.in/'
 languageCode = 'en-us'
-title = "Vivek's Blog"
+title = "Vivek Anand"
 theme = 'paper'
 
 [params]
