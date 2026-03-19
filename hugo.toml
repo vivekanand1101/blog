@@ -7,7 +7,7 @@ theme = 'paper'
   color = 'linen'
   avatar = ''
   name = 'Vivek Anand'
-  bio = 'Tech Lead · Backend Engineer · Open Source'
+  bio = 'Tech Lead · Backend Engineer'
 
 [menu]
   [[menu.main]]
