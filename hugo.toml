@@ -7,19 +7,14 @@ theme = 'paper'
   color = 'linen'
   avatar = ''
   name = 'Vivek Anand'
-  bio = 'Software Engineer · Builder · Open Source Enthusiast'
+  bio = 'Tech Lead · Backend Engineer · Open Source'
 
 [menu]
   [[menu.main]]
     identifier = 'home'
-    name = 'Home'
+    name = 'home'
     url = '/'
     weight = 1
-  [[menu.main]]
-    identifier = 'about'
-    name = 'About'
-    url = 'https://anandvivek.in'
-    weight = 2
 
 [markup]
   [markup.highlight]

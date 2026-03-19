@@ -1,0 +1,59 @@
+{{- define "main" -}}
+
+<!-- Tag Title -->
+{{- if and .Title (eq .Type "tags") -}}
+<h1 class="mb-14" style="font-family: var(--font-display); color: var(--vb-text);">#{{- .Title -}}</h1>
+{{- end -}}
+
+<!-- $pages -->
+{{- $pages := union .RegularPages .Sections -}}
+{{- if .IsHome -}}
+{{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections -}}
+{{- end -}}
+
+<!-- Articles -->
+{{- $paginator := .Paginate $pages -}}
+{{- range $index, $page := $paginator.Pages -}}
+
+<!-- Bio card on homepage first page -->
+{{- if and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) -}}
+{{- if site.Params.name -}}
+<div class="blog-bio">
+  <div class="blog-bio-text">
+    <div class="bio-name">{{- site.Params.name -}}</div>
+    <div class="bio-desc">{{- site.Params.bio | default (print `A personal blog`) -}}</div>
+  </div>
+</div>
+{{- end -}}
+{{- end -}}
+
+<a href="{{- .Permalink -}}" class="post-item">
+  {{- if gt .Weight 0 -}}
+  <div class="post-featured-badge">★ Featured</div>
+  {{- end -}}
+  <div class="post-item-title">{{- .Title -}}</div>
+  <div class="post-item-date">
+    {{- .Date | time.Format ":date_medium" -}}
+    {{- $ageDays := div (sub now.Unix .Date.Unix) 86400 -}}
+    {{- if gt $ageDays 180 -}}
+      {{- $ageYears := div $ageDays 365 -}}
+      {{- $ageMonths := div $ageDays 30 -}}
+      <span class="post-item-stale">· ⚠️ {{ if ge $ageYears 1 }}{{ $ageYears }}y{{ else }}{{ $ageMonths }}mo{{ end }} old</span>
+    {{- end -}}
+  </div>
+</a>
+{{- end -}}
+
+<!-- Pagination -->
+{{- if gt $paginator.TotalPages 1 -}}
+<nav class="blog-pagination not-prose">
+  {{- if $paginator.HasPrev -}}
+  <a href="{{- $paginator.Prev.URL -}}">← prev</a>
+  {{- end -}}
+  {{- if $paginator.HasNext -}}
+  <a href="{{- $paginator.Next.URL -}}" style="margin-left: auto;">next →</a>
+  {{- end -}}
+</nav>
+{{- end -}}
+
+{{- end -}}
