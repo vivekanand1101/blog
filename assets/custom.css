@@ -1,0 +1,168 @@
+/* Minimal theme: one typeface, one accent, light and dark. */
+
+:root {
+  --bg: #fdfdfc;
+  --text: #1c1c1c;
+  --muted: #62625e;
+  --rule: #e4e4e2;
+  --code-bg: #f4f4f2;
+  --link: #1f4e8c;
+
+  --serif: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, Cambria, serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161616;
+    --text: #e2e2e0;
+    --muted: #aaa9a3;
+    --rule: #2e2e2c;
+    --code-bg: #1f1f1e;
+    --link: #8fb3e6;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 18px/1.65 var(--serif);
+}
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a { color: var(--link); text-underline-offset: 2px; }
+a:hover { text-decoration-thickness: 2px; }
+
+/* Header & footer */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 32px 0 48px;
+}
+.site-header a { color: var(--text); text-decoration: none; }
+.site-title { font-weight: 700; }
+.site-header nav a { color: var(--muted); margin-left: 20px; font-size: 16px; }
+.site-header nav a:hover { color: var(--text); }
+
+.site-footer {
+  margin-top: 80px;
+  padding: 24px 0 48px;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 15px;
+}
+.site-footer a { color: var(--muted); }
+
+/* Home */
+.intro { margin: 0 0 48px; color: var(--muted); }
+.year { font-size: 16px; color: var(--muted); font-weight: 400; margin: 40px 0 8px; }
+.posts { list-style: none; padding: 0; margin: 0; }
+.posts li { display: flex; gap: 20px; padding: 4px 0; }
+.posts time {
+  flex: 0 0 4.5em;
+  color: var(--muted);
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+  padding-top: 2px;
+}
+.posts a { color: var(--text); text-decoration: none; }
+.posts a:hover { text-decoration: underline; }
+
+/* Article */
+h1, h2, h3, h4 { line-height: 1.3; font-weight: 700; }
+h1 { font-size: 32px; margin: 0 0 8px; }
+h2 { font-size: 24px; margin: 48px 0 12px; }
+h3 { font-size: 20px; margin: 36px 0 8px; }
+
+.meta { color: var(--muted); font-size: 16px; margin-bottom: 40px; }
+.note {
+  color: var(--muted);
+  font-size: 16px;
+  font-style: italic;
+  margin: -24px 0 40px;
+}
+
+article img { max-width: 100%; height: auto; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+blockquote {
+  margin: 24px 0;
+  padding-left: 20px;
+  border-left: 3px solid var(--rule);
+  color: var(--muted);
+}
+
+code { font: 0.85em var(--mono); }
+:not(pre) > code { background: var(--code-bg); padding: 1px 5px; border-radius: 3px; }
+pre {
+  background: var(--code-bg);
+  padding: 16px 20px;
+  overflow-x: auto;
+  line-height: 1.5;
+  border-radius: 4px;
+}
+pre code { font-size: 14px; background: none; padding: 0; }
+
+table { border-collapse: collapse; width: 100%; }
+th, td { border-bottom: 1px solid var(--rule); padding: 6px 8px; text-align: left; }
+
+/* Syntax highlighting: weight and shade, not hue */
+.chroma .c, .chroma .c1, .chroma .cm, .chroma .cs, .chroma .ch { color: var(--muted); font-style: italic; }
+.chroma .k, .chroma .kd, .chroma .kn, .chroma .kc, .chroma .kr, .chroma .ow, .chroma .nd { font-weight: 700; }
+
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-size: 16px;
+}
+.post-nav .next { text-align: right; margin-left: auto; }
+
+.tags { margin-top: 40px; font-size: 16px; color: var(--muted); }
+.tags a { color: var(--muted); margin-right: 12px; }
+
+@media (max-width: 560px) {
+  body { font-size: 17px; }
+  .site-header { padding: 24px 0 32px; }
+  .posts li { flex-direction: column; gap: 0; padding: 8px 0; }
+  .posts time { flex: none; font-size: 14px; }
+  .post-nav { flex-direction: column; }
+}
+
+/* The same quiet identity as the portfolio; portraits stay off article pages. */
+.eyebrow { color: var(--muted); font-size: 15px; margin: 0 0 8px; }
+.author-intro { display: grid; grid-template-columns: minmax(0, 1fr) 100px; gap: 32px; align-items: center; margin-bottom: 48px; }
+.author-intro h1 { font-size: 40px; letter-spacing: -.025em; margin: 8px 0 16px; }
+.author-intro .intro { margin-bottom: 16px; }
+.author-intro a { font-size: 16px; }
+.author-portrait { display: block; width: 100px; height: 120px; object-fit: cover; object-position: 53% center; filter: grayscale(1); border: 1px solid var(--rule); }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 5px; }
+article { max-width: 640px; margin: 0 auto; }
+@media (max-width: 560px) { .site-header { gap: 12px; flex-wrap: wrap; } .site-header nav a { margin-left: 12px; } .author-intro { gap: 16px; grid-template-columns: minmax(0, 1fr) 80px; } .author-portrait { width: 80px; height: 100px; } }
+
+/* Article pages share the portfolio identity and neutral code palette. */
+.back-link { display: inline-block; margin-bottom: 28px; font-size: 15px; }
+.article-header h1 { font-size: 38px; letter-spacing: -.025em; line-height: 1.2; margin-bottom: 20px; }
+.article-content { overflow-wrap: anywhere; }
+.article-content pre { overflow-wrap: normal; }
+.article-content .chroma { color: var(--text); background: var(--code-bg); }
+.article-content table { display: block; max-width: 100%; overflow-x: auto; }
+.article-author { display: flex; align-items: center; gap: 20px; border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 24px; font-size: 15px; }
+.article-author .author-portrait { width: 64px; height: 76px; }
+.article-author p { margin: 0 0 4px; }
+.article-author p + p { color: var(--muted); }
+@media (max-width: 560px) { .article-header h1 { font-size: 30px; } }

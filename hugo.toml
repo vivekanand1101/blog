@@ -1,0 +1,25 @@
+baseURL = 'https://blog.anandvivek.in/'
+languageCode = 'en-us'
+title = "Vivek Anand"
+theme = 'paper'
+
+[params]
+  color = 'linen'
+  avatar = ''
+  name = 'Vivek Anand'
+  bio = 'Tech Lead · Backend Engineer'
+  favicon = 'favicon-editorial.svg'
+
+[menu]
+  [[menu.main]]
+    identifier = 'home'
+    name = 'home'
+    url = '/'
+    weight = 1
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
