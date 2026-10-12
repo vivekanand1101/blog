@@ -27,6 +27,6 @@ hugo server -D
 | Build output directory | `public` |
 | Environment variable | `HUGO_VERSION` = `0.145.0` |
 
-## Archived posts
+## Attribution
 
-Removed posts are preserved in `archive/posts/`, outside Hugo’s published content directory. Move a post back to `content/posts/` to republish it.
+The initial code was stolen from [Armin Ronacher’s blog](https://lucumr.pocoo.org/) and then modified by AI.
