@@ -1,4 +1,4 @@
-baseURL = 'https://blog.anandvivek.in/'
+baseURL = 'https://writings.anandvivek.in/'
 languageCode = 'en-us'
 title = "Vivek Anand"
 theme = 'paper'
@@ -7,7 +7,7 @@ theme = 'paper'
   color = 'linen'
   avatar = ''
   name = 'Vivek Anand'
-  bio = 'Tech Lead · Backend Engineer'
+  bio = 'Lead Engineer, Backend'
   favicon = 'favicon-editorial.svg'
 
 [menu]

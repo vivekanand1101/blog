@@ -1,6 +1,6 @@
-# blog.anandvivek.in
+# writings.anandvivek.in
 
-Personal blog hosted at [blog.anandvivek.in](https://blog.anandvivek.in) via **Cloudflare Pages**.
+Personal blog hosted at [writings.anandvivek.in](https://writings.anandvivek.in) via **Cloudflare Pages**.
 
 Built with [Hugo](https://gohugo.io/) using the [Paper](https://github.com/nanxiaobei/hugo-paper) theme.
 
