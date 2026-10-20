@@ -1,32 +1,7 @@
-# writings.anandvivek.in
+# Moved
 
-Personal blog hosted at [writings.anandvivek.in](https://writings.anandvivek.in) via **Cloudflare Pages**.
+Writing now lives at https://anandvivek.in/writings/, built from
+[`vivekanand1101/website`](https://github.com/vivekanand1101/website) (`writings/`).
 
-Built with [Hugo](https://gohugo.io/) using the [Paper](https://github.com/nanxiaobei/hugo-paper) theme.
-
-## Writing a new post
-
-```bash
-hugo new content posts/my-new-post/index.md
-```
-
-Edit the generated file, set `draft: false` when ready, then push.
-
-## Local development
-
-```bash
-hugo server -D
-# visit http://localhost:1313
-```
-
-## Cloudflare Pages build settings
-
-| Field | Value |
-|---|---|
-| Build command | `hugo` |
-| Build output directory | `public` |
-| Environment variable | `HUGO_VERSION` = `0.145.0` |
-
-## Attribution
-
-The initial code was stolen from [Armin Ronacher’s blog](https://lucumr.pocoo.org/) and then modified by AI.
+This Cloudflare Pages project (writings.anandvivek.in, blog.anandvivek.in) only serves
+`redirect/_redirects`, which sends every path to the same path under `/writings/`.
